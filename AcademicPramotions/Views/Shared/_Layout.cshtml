@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Academic Pramotions</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @*<script src="~/Scripts/angular.js"></script>
+    <script src="~/AngularJs/Module.js"></script>
+    <script src="~/AngularJs/LandingController.js"></script>*@
+
+    @Scripts.Render("~/bundles/RequiredJsFiles")
+    @Styles.Render("~/Content/requiredCss")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,600italic,700,800,800italic" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/content/styles/template.css" rel="stylesheet" />
+    <link href="~/content/styles/responsive.css" rel="stylesheet" />
+    <link href="~/content/styles/base-sizing.css" rel="stylesheet" />
+    <link href="~/content/styles/custom.css" rel="stylesheet" />
+
+
+</head>
+<body ng-app="AcademicPromotions">
+    <div id="page_wrapper">
+
+        <!--New Header-->
+        <header id="new-header" class="site-header style2 cta_button">
+            <div class="kl-top-header2 clearfix">
+                <div class="container">
+                    <!-- logo container-->
+                    <div class="logo-container hasInfoCard logosize--yes">
+                        <!-- Logo -->
+                        <h1 class="site-logo logo " id="logo">
+                            <a href="@Url.Action("Index", "Home")">
+                                <img src="/Images/ap-logo.png" class="logo-img" alt="Academic Promotion" title="Academic Promotion" />
+                            </a>
+                        </h1>
+                        <!--/ Logo -->
+                    </div>
+                    <!--/ logo container-->
+                    <div class="header-rightside-container">
+                        <!-- header-rightside-container -->
+                        <div class="h-right-inner clearfix">
+                            <!-- Header Social links -->
+                            <ul class="social-icons sc--clean topnav navRight ap-social">
+                                <li><a href="http://www.facebook.com/leratechit" target="_self" class="icon-facebook" title="Facebook"></a></li>
+                                <li><a href="http://www/twitter.com/leratechit" target="_self" class="icon-twitter" title="Twitter"></a></li>
+                                <li><a href="https://www.linkedin.com/uas/login" target="_self" class="icon-linkedin" title="Linkedin"></a></li>
+                                <li><a href="https://plus.google.com/" target="_blank" class="icon-gplus" title="Google Plus"></a></li>
+                            </ul>
+                            <!--/ Header Social links -->
+                        </div>
+                        <!--/ header-rightside-container -->
+                        <ul class="topnav navRight topnav">
+                            <!-- Support panel trigger -->
+                            <li><a href="~/Pages/contact-us.html">SUPPORT</a>
+                            </li>
+                            <!--/ Support panel trigger -->
+                            <!-- Login trigger -->
+                            <li>
+                                <a class="" href="#">
+                                    <i class="glyphicon glyphicon-log-in visible-xs xs-icon"></i>
+                                    <a class="hidden-xs" href="@Url.Action("Login", "Home")">LOGIN</a>
+                                </a>
+                            </li>
+                            <!--/ Login trigger -->
+                        </ul>
+                    </div>
+                    <!--/ header-rightside-container -->
+                    <!-- Header search -->
+                    <div id="search" class="header-search">
+                        <!--a href="#" class="searchBtn "><span class="glyphicon glyphicon-search icon-white"></span></a-->
+                        @*<div class="search-container">
+                            <span class="kl-header-toptext">QUESTIONS? CALL: <a href="#" class="fw-bold">469 666 9009</a></span>
+
+                        </div>*@
+                    </div>
+                    <!--/ Header search -->
+                </div>
+                <!--/ container  -->
+            </div>
+            <!--/ kl-top-header2 -->
+            <!-- kl-main-header -->
+            <div class="kl-main-header clearfix">
+                <!-- siteheader-container -->
+                <div class="container siteheader-container">
+                    <!-- Call to action ribbon Free Quote -->
+                    <a href="#" id="ctabutton" class="ctabutton kl-cta-ribbon" title="GET A FREE QUOTE" target="_self"><strong>FREE</strong>QUOTE<svg version="1.1" class="trisvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" preserveaspectratio="none" width="14px" height="5px" viewbox="0 0 14.017 5.006" enable-background="new 0 0 14.017 5.006" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.016,0L7.008,5.006L0,0H14.016z"></path></svg></a>
+                    <!--/ Call to action ribbon Free Quote -->
+
+                    <!-- responsive menu trigger -->
+                    <div id="zn-res-menuwrapper">
+                        <a href="#" class="zn-res-trigger zn-header-icon"></a>
+                    </div>
+                    <!--/ responsive menu -->
+                    <!-- main menu -->
+                    <div id="main-menu" class="main-nav zn_mega_wrapper ">
+                        <ul id="menu-main-menu" class="main-menu zn_mega_menu">
+                            <li class="menu-item-has-children menu-item-mega-parent"><a href="@Url.Action("Index", "Home")">HOME</a></li>
+                            <li class="menu-item-has-children"><a href="~/Pages/about-us.html">ABOUT US</a>
+                                <ul class="sub-menu clearfix">
+                                    <li><a href="~/Pages/who-we-are.html">Who We Are</a></li>
+                                    @*<li><a href="~/Pages/testimonials.html">Testimonials</a></li>
+                                    <li><a href="~/Pages/blog-post.html">News Updates</a></li>*@
+                                    <li><a href="~/Pages/employment-form.html">Employment Application Form</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><a href="~/Pages/product.html">PRODUCTS</a>
+                                <ul class="sub-menu clearfix">
+                                    <li><a href="~/Pages/product.html">All</a></li>
+                                    <li><a href="~/Pages/banners.html">Banners</a></li>
+                                    <li><a href="~/Pages/carflags.html">Car Flags</a></li>
+                                    <li><a href="~/Pages/collapsible-megaphones.html">Collapsible Megaphones</a></li>
+                                    <li><a href="~/Pages/cups.html">Cups</a></li>
+                                    <li><a href="~/Pages/megaphones.html">Megaphones</a></li>
+                                    <li><a href="~/Pages/mini-balls.html">Mini Balls</a></li>
+                                    <li><a href="~/Pages/pompoms.html">Pom Poms</a></li>
+                                    <li><a href="~/Pages/rallytowels.html">Rally Towels</a></li>
+                                    <li><a href="~/Pages/seatcushions.html">Seat Cushions</a></li>
+                                    <li><a href="~/Pages/spiritbeads.html">Spirit Beads</a></li>
+                                    <li><a href="~/Pages/sportsbottles.html">Sports Bottles</a></li>
+                                    <li><a href="~/Pages/t-shirts.html">T-shirts</a></li>
+                                    <li><a href="~/Pages/thunderstix.html">Thunderstix</a></li>
+                                    <li><a href="~/Pages/totebags.html">Tote Bags</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><a href="#">SCHOOLS</a>
+                                <ul class="sub-menu clearfix">
+                                    <li><a href="@Url.Action("SignUpForm", "Schools")">SignUp Form</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><a href="#">SPONSORS</a>
+                                <ul class="sub-menu clearfix">
+                                    <li><a href="@Url.Action("SponsorRegistration", "Sponsor")">Sponsor Registration</a></li>
+                                    <li><a href="~/Pages/payment.html">Payments</a></li>
+                                    @*<li><a href="#">Sponsors Survey</a></li>*@
+                                    <li><a href="~/Pages/client-form.html">Client Verification Form</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="~/Pages/faq.html">F.A.Q.</a></li>
+                            <li><a href="~/Pages/contact-us.html">CONTACT US</a></li>
+                        </ul>
+                    </div>
+                    <!--/ main menu -->
+                </div>
+                <!--/ siteheader-container -->
+            </div>
+            <!--/ kl-main-header -->
+        </header>
+        <!--New Header-->
+        @*<div>
+        <span>
+            @Html.ActionLink("Schools SignUp Form", "SignUpForm", "Schools")
+        </span>
+    </div>*@
+        <div>
+            @RenderBody()
+        </div>
+
+        <!-- Footer -->
+        @*<footer id="new-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-5">
+					<div>
+						<h3 class="title m_title">FOOTER MENU</h3>
+						<div class="sbs">
+							<ul class="menu">
+								<li class="menu-item-has-children menu-item-mega-parent"><a href="/Home/Index">Home</a></li>
+								<li class="menu-item-has-children"><a href="about-us.html">About Us</a>
+								</li>
+								<li class="menu-item-has-children"><a href="product.html">Products</a></li>
+								<li class="menu-item-has-children"><a href="school.html">Schools</a></li>
+								<li class="menu-item-has-children"><a href="sponsors.html">Sponsors</a></li>
+								<li><a href="faq.html">FAQ</a></li>
+								<li><a href="contact-us.html">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!--/ col-sm-5 -->
+
+				<div class="col-sm-4">
+					<div class="newsletter-signup">
+						<h3 class="title m_title">NEWSLETTER SIGNUP</h3>
+						<p>By subscribing to our mailing list you will always be update with the latest news from us.</p>
+						<form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<input type="email" value="" name="EMAIL" class="nl-email form-control" id="mce-EMAIL" placeholder="info@academicpromotions.net" required>
+							<input type="submit" name="subscribe" class="nl-submit" id="mc-embedded-subscribe" value="JOIN US">
+							<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+							<div style="position: absolute; left: -5000px;">
+								<input type="text" name="b_xxxxxxxxxxxxxxxxxxxCUSTOMxxxxxxxxx" value="">
+							</div>
+						</form>	
+						<div id="notification_container"></div>
+						<p>We never spam!</p>
+					</div><!-- end newsletter-signup -->
+				</div>
+				<!-- col-sm-4 -->
+
+				<div class="col-sm-3">
+					<div>
+						<h3 class="title m_title">GET IN TOUCH</h3>
+						<div class="contact-details"><p><strong>866-417-4274</strong><br>
+							Email: <a href="#">  info@academicpromotions.net</a></p>
+							<p>P.O. Box 543212, Grand Prairie, TX 75054</p>
+						</div>
+					</div>
+				</div>
+				<!--/ col-sm-3 -->
+			</div>
+			<!--/ row -->
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="bottom clearfix">
+						<!-- social-icons -->
+						<ul class="social-icons sc--clean clearfix">
+							<li class="title">GET SOCIAL</li>
+							<li><a href="http://www.facebook.com/" target="_self" class="icon-facebook" title="Facebook"></a></li>
+							<li><a href="http://www/twitter.com/" target="_self" class="icon-twitter" title="Twitter"></a></li>	
+							<li><a href="https://www.linkedin.com/uas/login" target="_self" class="icon-linkedin" title="Linkedin"></a></li>
+							<li><a href="https://plus.google.com/" target="_blank" class="icon-gplus" title="Google Plus"></a></li>
+						</ul>
+						<!--/ social-icons -->
+
+						<!-- copyright -->
+						<div class="copyright">
+							<a href="/Home/Index">
+								<img src="images/ap-logo.png" alt="Academic Promotions">
+							</a>
+							<p>© 2017 All rights reserved. Built by <a href="http://leratechit.com/" target="_self" title="Lera Technology">Lera Technology</a>.</p>
+						</div>
+						<!--/ copyright -->
+					</div>
+					<!--/ bottom -->
+				</div>
+				<!--/ col-sm-12 -->
+			</div>
+			<!--/ row -->
+		</div>
+		<!--/ container -->
+	</footer>*@
+        <!--/ Footer -->
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

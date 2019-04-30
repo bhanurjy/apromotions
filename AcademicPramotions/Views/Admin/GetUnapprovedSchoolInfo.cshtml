@@ -1,0 +1,105 @@
+﻿@using AcademicPramotions.ViewModels
+@model List<AcademicPramotions.ViewModels.SchoolInfoVM>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "GetUnapprovedSchoolInfo";
+    Layout = "~/Views/Shared/login_Layout.cshtml";
+}
+<div class="clear-both" style="" ng-controller="AdminCtrl">
+    <div class="hpanel">
+        <div class="panel-heading">
+            <div class="panel-tools">
+            </div>
+        </div>
+        @*<div class="grid-wrap clearfix ng-scope">
+            @Html.Grid(Model).Columns(columns =>
+{
+
+    columns.Add(o => o.SchoolName).Titled("School Name");
+
+    columns.Add(o => o.City).Titled("City");
+
+    columns.Add(o => o.StateName).Titled("State Name");
+
+    columns.Add(o => o.Telephone).Titled("Telephone");
+
+    columns.Add(o => o.Email).Titled("Email");
+
+    columns.Add(o => o.Website).Titled("Website");
+
+    columns.Add(o => o.ContactTitle).Titled("Contact Title");
+
+    //columns.Add().RenderValueAs(o=>Html.CheckBox("checked",false,o.IsActive));
+
+}).WithPaging(10).Sortable().Filterable().WithMultipleFilters()
+        </div>*@
+        <div>
+            <table id="t01">
+                <thead>
+                    <th>School Name</th>
+                    <th>City</th>
+                    <th>StateName</th>
+                    <th>Telephone</th>
+                    <th>Email</th>
+                    <th>Website</th>
+                    <th>Contact Title</th>
+                    <th>Approve</th>
+                </thead>
+                @foreach (var item in Model)
+                {  
+                    <tr>
+                        <td>@item.SchoolName</td>
+                        <td>@item.City</td>
+                        <td>@item.StateName</td>
+                        <td>@item.Telephone</td>
+                        <td>@item.Email</td>
+                        <td>@item.Website</td>
+                        <td>@item.ContactTitle</td>
+                        <td><input type="checkbox" name="selectedStudents[]" data-ng-checked="selection.indexOf(@item.SchoolInfoId) > -1" data-ng-click="toggleSelection(@item.SchoolInfoId)"></td>
+                    </tr>  
+                }
+            </table>
+        </div>
+        <div class="panel-row">
+            <input type="button" value="Approve" ng-click="approveSchool()" />
+        </div>
+        <style>
+            table#t01 {
+                width: 100%;
+                background-color: #f1f1c1;
+            }
+
+                table#t01 tr:nth-child(even) {
+                    background-color: #eee;
+                }
+
+                table#t01 tr:nth-child(odd) {
+                    background-color: #fff;
+                }
+
+                table#t01 th {
+                    color: white;
+                    background-color: gray;
+                }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                padding: 15px;
+            }
+        </style>
+
+    </div>
+</div>

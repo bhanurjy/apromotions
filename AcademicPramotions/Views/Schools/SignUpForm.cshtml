@@ -1,0 +1,278 @@
+﻿@{
+    ViewBag.Title = "SignUpForm";
+    Layout = "~/Views/Shared/home_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School SignUp Form</title>
+    <style>
+        .radiobtncss {
+            width: 20px;
+        }
+    </style>
+    
+</head>
+<body ng-controller="SchoolsSignUpFormCtrl">
+    <div class="col-md-12">
+        <h3>Schools Sign Up Form</h3>
+        <span></span>
+        <form name="Schoolsignupform" autocomplete="off">
+
+            <div class="col-md-12" ng-class="{ 'has-error' : Schoolsignupform.Schoolname.$error.required && !Schoolsignupform.Schoolname.$pristine }">
+                <label class="col-lg-2">School Name<span style="color: red;">*</span></label>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="Schoolname" ng-model="SchoolInfo.SchoolName" placeholder="School Name" characters-only required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <label class="col-lg-2">School Colors<span style="color: red;">*</label>
+                <div class="col-lg-10 form-group">
+                    <div class="col-lg-2" ng-class="{ 'has-error' : Schoolsignupform.FirstColor.$error.required && !Schoolsignupform.FirstColor.$pristine }">
+                        <input class="form-control" type="text" name="FirstColor" ng-model="SchoolInfo.SchoolFirstColor" placeholder="First Color" characters-only required />
+                    </div>
+                    <div class="col-lg-1">And</div>
+                    <div class="col-lg-2" ng-class="{ 'has-error' : Schoolsignupform.SecondColor.$error.required && !Schoolsignupform.SecondColor.$pristine }">
+                        <input class="form-control" type="text" name="SecondColor" ng-model="SchoolInfo.SchoolSecondColor" placeholder="Second Color" />
+                    </div>
+                    <div class="col-lg-1">And</div>
+                    <div class="col-lg-2" ng-class="{ 'has-error' : Schoolsignupform.Mascot.$error.required && !Schoolsignupform.Mascot.$pristine }">
+                        <input class="form-control" type="text" name="Mascot" ng-model="SchoolInfo.MastCot" placeholder="Mascot" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" ng-class="{ 'has-error' : Schoolsignupform.UserName.$error.required && !Schoolsignupform.UserName.$pristine }">
+                <label class="col-lg-2">User Name<span style="color: red;">*</span></label>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <input class="form-control" ng-minlength="2" maxlength="8" type="text" name="UserName" ng-model="SchoolInfo.UserName" ng-blur="validateUserName(SchoolInfo.UserName)" placeholder="User Name" characters-only required />
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <span style="color: red;" ng-show="invalidUsername" ng-model="invalidUsername">User Name Already Exist</span>
+                </div>
+            </div>
+            <div class="col-md-12" ng-class="{ 'has-error' : Schoolsignupform.Password.$error.required && !Schoolsignupform.Password.$pristine }">
+                <label class="col-lg-2">Password<span style="color: red;">*</span></label>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="Password" ng-minlength="6" ng-maxlength="6" ng-model="SchoolInfo.Password" ng-blur="validatePassword(SchoolInfo.Password)" placeholder="Password" required />
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <span style="color: red;" ng-show="invalidpassword" ng-model="invalidpassword">Password must be min. 6 characters length</span>
+                </div>
+            </div>
+            <div class="col-lg-12" ng-class="{ 'has-error' : Schoolsignupform.SchoolAddress.$error.required && !Schoolsignupform.SchoolAddress.$pristine }">
+                <label class="col-lg-2">School Address<span style="color: red;">*</span></label>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="SchoolAddress" ng-model="SchoolInfo.SchoolAddress" placeholder="School Address" addresstype-only required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12" ng-class="{ 'has-error' : Schoolsignupform.City.$error.required && !Schoolsignupform.City.$pristine }">
+                <label class="col-lg-2">City<span style="color: red;">*</span></label>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="City" ng-model="SchoolInfo.City" placeholder="City" characters-only required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <label class="col-lg-2">
+                    State<span style="color: red;">*</span>
+                </label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Schoolsignupform.StateId.$error.required && !Schoolsignupform.StateId.$pristine }">
+                    <div class="form-group">
+                        <select class="form-control" name="StateId" data-ng-model="SchoolInfo.StateId" ng-options="S.StateId as S.StateName for S in StateList | orderBy:'StateName'" required>
+                            <option value="">Select State</option>
+                        </select>
+                    </div>
+                </div>
+                <label class="col-lg-2">Zip Code<span style="color: red;">*</span></label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Schoolsignupform.Zip.$error.required && !Schoolsignupform.Zip.$pristine }">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="Zip" ng-minlength="6" ng-maxlength="6" ng-model="SchoolInfo.Zip" ng-blur="validateZipcode(SchoolInfo.Zip)" placeholder="Zip Code" numbers-only required />
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <span style="color: red;" ng-show="invalidzipcode" ng-model="invalidzipcode">Zipcode must be 6 characters length</span>
+                </div>
+            </div>
+
+
+            <div class="col-lg-12" ng-class="{ 'has-error' : Schoolsignupform.ShippingAddress.$error.required && !Schoolsignupform.ShippingAddress.$pristine }">
+                <label class="col-lg-2">Shipping Address<span style="color: red;">*</span></label>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="ShippingAddress" ng-model="SchoolInfo.ShippingAddress" placeholder="Shipping Address" addresstype-only required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12" ng-class="{ 'has-error' : Schoolsignupform.ShippingCity.$error.required && !Schoolsignupform.ShippingCity.$pristine }">
+                <label class="col-lg-2">Shipping City<span style="color: red;">*</span></label>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="ShippingCity" ng-model="SchoolInfo.ShippingCity" placeholder="Shipping City" characters-only required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <label class="col-lg-2">
+                    Shipping State<span style="color: red;">*</span>
+                </label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Schoolsignupform.ShippingState.$error.required && !Schoolsignupform.ShippingState.$pristine }">
+                    <div class="form-group">
+                        <select class="form-control" name="ShippingState" data-ng-model="SchoolInfo.ShippingState" ng-options="S.StateId as S.StateName for S in StateList | orderBy:'StateName'" required>
+                            <option value="">Select State</option>
+                        </select>
+                    </div>
+                </div>
+                <label class="col-lg-2">Shipping Zip<span style="color: red;">*</span></label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Schoolsignupform.ShippingZip.$error.required && !Schoolsignupform.ShippingZip.$pristine }">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="ShippingZip" ng-model="SchoolInfo.ShippingZip" placeholder="Shipping Zip" numbers-only required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <label class="col-lg-2">Telephone<span style="color: red;">*</span></label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Schoolsignupform.Telephone.$error.required && !Schoolsignupform.Telephone.$pristine }">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="Telephone" ng-minlength="10" ng-maxlength="10" ng-model="SchoolInfo.Telephone" placeholder="Telephone" ng-blur="validateTelephone(SchoolInfo.Telephone)" numbers-only required />
+                    </div>
+                    <div class="col-lg-3">
+                        <span style="color: red;" ng-show="invalidTelephone" ng-model="invalidTelephone">Telephone must be 10 characters length</span>
+                    </div>
+                </div>
+                <label class="col-lg-2">Alternate Telephone<span style="color: red;">*</span></label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Schoolsignupform.AlternateTelephone.$error.required && !Schoolsignupform.AlternateTelephone.$pristine }">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="AlternateTelephone" ng-minlength="10" ng-maxlength="10" ng-model="SchoolInfo.AlternateTelephone" placeholder="Alternate Telephone" ng-blur="validateAlternateTelephone(SchoolInfo.AlternateTelephone)" numbers-only required />
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <span style="color: red;" ng-show="invalidAlternateTelephone" ng-model="invalidAlternateTelephone">Telephone must be 10 characters length</span>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <label class="col-lg-2">Email<span style="color: red;">*</span></label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Schoolsignupform.Email.$error.required && !Schoolsignupform.Email.$pristine }">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="Email" ng-model="SchoolInfo.Email" placeholder="Email" ng-blur="validateEmail(SchoolInfo.Email)" required />
+                    </div>
+                    <div class="col-lg-3">
+                        <span style="color: red;" ng-show="invalidEmail" ng-model="invalidEmail">Invalid Email Id</span>
+                    </div>
+                </div>
+
+                <label class="col-lg-2">Website<span style="color: red;">*</span></label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Schoolsignupform.Website.$error.required && !Schoolsignupform.Website.$pristine }">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="Website" ng-model="SchoolInfo.Website" placeholder="Website" http-prefix />
+                        <p><b>Hint:</b>http://www.xyz.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <label class="col-lg-2">Contact Name<span style="color: red;">*</span></label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Schoolsignupform.ContactName.$error.required && !Schoolsignupform.ContactName.$pristine }">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="ContactName" ng-model="SchoolInfo.ContactNumber" placeholder="Contact Name" characters-only required />
+                    </div>
+                </div>
+                <label class="col-lg-2">Title<span style="color: red;">*</span></label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Schoolsignupform.ContactTitle.$error.required && !Schoolsignupform.ContactTitle.$pristine }">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="ContactTitle" ng-model="SchoolInfo.ContactTitle" placeholder="Contact Title" characters-only required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <label class="col-lg-5">Do you want items for Football and/or Basketball?<span style="color: red;">*</span></label>
+                <div class="col-lg-7" ng-class="{ 'has-error' : Schoolsignupform.ItemsRequiredFor.$error.required && !Schoolsignupform.ItemsRequiredFor.$pristine }">
+
+                    @*<span ng-repeat="(item,enabled) in ItemsRequiredFor">
+                        <input type="checkbox" ng-model="SchoolInfo.ItemsRequiredFor[item]">
+                        {{item}}
+                    </span>*@
+                    <div class="form-group">
+                        <label data-ng-repeat="item in ItemsRequiredFor" class="checkbox-inline">
+                            <input type="checkbox" name="ItemsRequiredFor[]" value="{{item}}" data-ng-checked="selection.indexOf(item) > -1" data-ng-click="toggleSelection(item)">
+                            {{item}}
+                        </label>
+                        <input type="text" ng-show="IsVisible" name="ItemsRequiredFor" ng-model="SchoolInfo.OthersTextInfo" characters-only />
+                    </div>
+                </div>
+                @*{{ItemsRequiredFor}}*@
+            </div>
+
+            <div class="col-lg-12">
+                <label class="col-lg-5">Check each year you wish to receive items?<span style="color: red;">*</span></label>
+                <div class="col-lg-7" ng-class="{ 'has-error' : Schoolsignupform.selectedYears.$error.required && !Schoolsignupform.selectedYears.$pristine }">
+                    @* <input type="checkbox" name="ReceiveItemsForYear" ng-model="SchoolInfo.CurrentYear" />2017-2018
+                    <input type="checkbox" name="ReceiveItemsForYear" ng-model="SchoolInfo.NextYear" />2018-2019*@
+                    @* <span ng-repeat="(item,enabled) in ReceiveItemsForYear">
+                        <input type="checkbox" ng-model="SchoolInfo.ReceiveItemsForYear[item]">
+                        {{item}}
+                    </span>{{ReceiveItemsForYear}}*@<div class="form-group">
+                        <label data-ng-repeat="item in ReceiveItemsForYear" class="checkbox-inline">
+                            <input type="checkbox" name="ReceiveItemsForYear[]" value="{{item.value}}" data-ng-checked="selection.indexOf(item.value) > -1" data-ng-click="toggleSelectedYear(item.Id)">
+                            {{item.value}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <label class="col-lg-5">Will you use these items for fund-raisers or promotional give-aways?<span style="color: red;">*</span></label>
+                <div class="col-lg-7" ng-class="{ 'has-error' : Schoolsignupform.ItemsUsedFor.$error.required && !Schoolsignupform.ItemsUsedFor.$pristine }">
+                    <div class="form-group">
+                        <input type="checkbox" value="1" name="ItemsUsedFor" ng-model="SchoolInfo.FundItemsUsedFor" />Fund-Raisers
+                    <input type="checkbox" value="2" name="ItemsUsedFor" ng-model="SchoolInfo.FreeItemsUsedFor" />Freebies
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <label class="col-lg-5">Will you announce the sponsors' names at the games?<span style="color: red;">*</span></label>
+                <div class="col-lg-7" ng-init="SchoolInfo.ItemsUsedFor = '1'">
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input name="ItemsUsedFor" value="1" type="radio" ng-model="SchoolInfo.AnnounceSponcerName" class="radiobtncss" required />Yes</label>
+                        <label class="radio-inline">
+                            <input name="ItemsUsedFor" value="0" type="radio" ng-model="SchoolInfo.AnnounceSponcerName" class="radiobtncss" required />No</label>
+                    </div>
+                </div>
+            </div>
+
+            <input type="button" ng-click="saveSignUpData(SchoolInfo)" ng-disabled="Schoolsignupform.$invalid" value="Save" />
+            <input type="button" value="Cancel" />
+            <div class="col-lg-12">
+                <div class="alert alert-danger fade in" ng-show="showError">
+                    <a href="javascript:;" class="close closeError" data-dismiss="alert">&times;</a>
+                    <strong>Error!</strong> <span data-ng-bind="errorMsg"></span>
+                </div>
+                <div class="alert alert-success fade in" ng-show="showSuccess">
+                    <a href="javascript:;" class="close closeError" data-dismiss="alert">&times;</a>
+                    <strong>Success !</strong> <span data-ng-bind="successMsg"></span>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="/image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    @Styles.Render("~/Content/requiredCss")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+
+    @*<script src="~/Scripts/angular.js"></script>
+    <script src="~/AngularJs/Module.js"></script>
+    <script src="~/AngularJs/LandingController.js"></script>*@
+    @Scripts.Render("~/bundles/RequiredJsFiles")
+    @*<script src="~/Scripts/ui-bootstrap.js"></script>
+    <script src="~/Scripts/ui-bootstrap-tpls.js"></script>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,600italic,700,800,800italic" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/content/Site.css" rel="stylesheet" />*@
+
+    <link href="~/content/styles/template.css" rel="stylesheet" />
+    <link href="~/content/styles/responsive.css" rel="stylesheet" />
+    <link href="~/content/styles/base-sizing.css" rel="stylesheet" />
+    <link href="~/content/styles/custom.css" rel="stylesheet" />
+
+
+</head>
+<body ng-app="AcademicPromotions">
+    <div id="page_wrapper">
+        <!-- Header -->
+        <header id="header" class="site-header style2 cta_button">
+            <div class="kl-top-header2 clearfix">
+                <div class="container">
+                    <!-- logo container-->
+                    <div class="logo-container hasInfoCard logosize--yes">
+                        <!-- Logo -->
+                        <h1 class="site-logo logo " id="logo">
+                            <a href="@Url.Action("Index", "Home")">
+                                <img src="/images/ap-logo.png" class="logo-img" alt="Academic Promotion" title="Academic Promotion" />
+                            </a>
+                        </h1>
+                        <!--/ Logo -->
+                        <!-- InfoCard -->
+                        @*<div id="infocard" class="logo-infocard">
+                            <div class="custom">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <p>
+                                            &nbsp;
+                                        </p>
+                                        <p style="text-align: center;">
+                                            <img src="/images/ap-logo2.png" class="" alt="Academic" title="Academic" />
+                                        </p>
+                                        <p style="text-align: center;">
+                                            Academic is a marketing firm that works closely with the local business community and different organizations across the Country.
+                                        </p>
+                                    </div>
+                                    <!--/ col-sm-5 -->
+                                    <div class="col-sm-7">
+                                        <div class="custom contact-details">
+                                            <p>
+                                                <strong>T (866) 417-4274</strong><br>
+                                                Email:&nbsp;<a href="mailto:support@academic.com">support@academic.com</a>
+                                            </p>
+                                            <p>
+                                                Your Company LTD<br>
+                                                Street nr 100, 4536534, Chicago, US
+                                            </p>
+                                            <a href="" class="map-link" target="_blank" title="">
+                                                <span class="glyphicon glyphicon-map-marker icon-white"></span>
+                                                <span>Open in Google Maps</span>
+                                            </a>
+                                        </div>
+                                        <div style="height: 20px;">
+                                        </div>
+                                        <!-- Social links -->
+                                        <ul class="social-icons sc--clean">
+                                            <li><a href="#" target="_self" class="icon-twitter" title="Twitter"></a></li>
+                                            <li><a href="#" target="_self" class="icon-facebook" title="Facebook"></a></li>
+                                            <li><a href="#" target="_blank" class="icon-google" title="Google Plus"></a></li>
+                                        </ul>
+                                        <!--/ Social links -->
+                                    </div>
+                                    <!--/ col-sm-7 -->
+                                </div>
+                                <!--/ row -->
+                            </div>
+                            <!--/ custom -->
+                        </div>*@
+                        <!--/ InfoCard -->
+                    </div>
+                    <!--/ logo container-->
+
+                    <div class="header-rightside-container">
+                        <!-- header-rightside-container -->
+                        <div class="h-right-inner clearfix">
+                            <!-- Header Social links -->
+                            <ul class="social-icons sc--clean topnav navRight ap-social">
+                                <li><a href="#" target="_self" class="icon-facebook" title="Facebook"></a></li>
+                                <li><a href="#" target="_self" class="icon-twitter" title="Twitter"></a></li>
+                                <li><a href="https://www.linkedin.com/uas/login" target="_self" class="icon-linkedin" title="Linkedin"></a></li>
+                                <li><a href="#" target="_blank" class="icon-gplus" title="Google Plus"></a></li>
+                            </ul>
+                            <!--/ Header Social links -->
+                        </div>
+                        <!--/ header-rightside-container -->
+
+                        <ul class="topnav navRight topnav">
+                            <!-- Support & Login -->
+                            <li><a href="~/Pages/contact-us.html">SUPPORT</a></li>
+                            <li><a href="@Url.Action("Logout", "Home")">LOGOUT</a></li>
+                            <!--/ Support & Login -->
+                        </ul>
+                    </div>
+                    <!--/ header-rightside-container -->
+
+                    <!-- Header Call -->
+                    <div id="search" class="header-search">
+                        <div class="search-container">
+                            <span class="kl-header-toptext">QUESTIONS? CALL: <a href="#" class="fw-bold">0900 800 900</a></span>
+                        </div>
+                    </div>
+                    <!--/ Header Call -->
+                </div>
+                <!--/ container  -->
+            </div>
+            <!--/ Top-header -->
+
+            <!-- kl-main-header -->
+            <div class="kl-main-header clearfix">
+                <!-- siteheader-container -->
+                <div class="container siteheader-container">
+                    <!-- Call to action ribbon Free Quote -->
+                    <a href="#" id="ctabutton" class="ctabutton kl-cta-ribbon" title="GET A FREE QUOTE" target="_self"><strong>FREE</strong>QUOTE<svg version="1.1" class="trisvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" preserveaspectratio="none" width="14px" height="5px" viewbox="0 0 14.017 5.006" enable-background="new 0 0 14.017 5.006" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.016,0L7.008,5.006L0,0H14.016z"></path></svg></a>
+                    <!--/ Call to action ribbon Free Quote -->
+
+                    <!-- responsive menu trigger -->
+                    <div id="zn-res-menuwrapper">
+                        <a href="#" class="zn-res-trigger zn-header-icon"></a>
+                    </div>
+                    <!--/ responsive menu -->
+
+                    <!-- main menu -->
+                    <div id="main-menu" class="main-nav zn_mega_wrapper ">
+                        <ul id="menu-main-menu" class="main-menu zn_mega_menu">
+                            @if (Session["RoleId"] != null)
+                            {
+                                if (Session["RoleId"].ToString() == "1")
+                                {
+                                    <li class="active"><a href="@Url.Action("AdminDashBoard", "Home")">Home</a></li>
+                                    <li><a href="@Url.Action("GetRegisteredSchoolInfo", "Admin")">Registered Schools</a></li>
+                                    <li><a href="@Url.Action("GetRegisteredSponsorInfo", "Admin")">Registered Sponcers</a></li>
+                                    <li><a href="@Url.Action("GetSchoolsRequirementsInfo", "Admin")">Schools Requirements</a></li>
+                                    <li><a href="@Url.Action("GetUnapprovedSchoolInfo", "Admin")">Approve Schools</a></li>
+                                    <li><a href="@Url.Action("GetUploadedArtwork", "Admin")">Uploaded Artwork</a></li>
+                                }
+
+                                if (Session["RoleId"].ToString() == "2")
+                                {
+                                    <li class="active"><a href="@Url.Action("SchoolDashBoard", "Schools")">Home</a></li>
+                                    <li><a href="@Url.Action("PostRequirements", "schools")">Post Requirements</a></li>
+                                    <li><a href="@Url.Action("ViewPostedRequirements", "schools")">View Posted Requirements</a></li>
+                                }
+
+                                if (Session["RoleId"].ToString() == "3")
+                                {
+                                    <li class="active"><a href="@Url.Action("AdminDashBoard", "Home")">Home</a></li>
+                                    <li><a href="@Url.Action("UploadArtWork", "Sponsor")">Upload Art Work</a></li>
+                                }
+                            }
+@*<li class="menu-item-has-children"><a href="product.html">PRODUCTS</a>
+                                <ul class="sub-menu clearfix">
+                                    <li><a href="#">All</a></li>
+                                    <li><a href="#">T-shirts</a></li>
+                                    <li><a href="#">Cups</a></li>
+                                    <li><a href="#">Megaphones</a></li>
+                                    <li><a href="#">Banners</a></li>
+                                    <li><a href="#">Pom Poms</a></li>
+                                    <li><a href="#">Mini Balls</a></li>
+                                    <li><a href="#">Rally Towels</a></li>
+                                    <li><a href="#">Sports Bottles</a></li>
+                                    <li><a href="#">Car Flags</a></li>
+                                    <li><a href="#">Tote Bags</a></li>
+                                    <li><a href="#">Seat Cushions</a></li>
+                                    <li><a href="#">Thunderstix</a></li>
+                                    <li><a href="#">Spirit Beads</a></li>
+                                    <li><a href="#">Collapsible Megaphones</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><a href="#">SCHOOLS</a>
+                                <ul class="sub-menu clearfix">
+                                    <li><a href="@Url.Action("SignUpForm", "Schools")">SignUp Form</a></li>
+                                    <li><a href="#">School Survey</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><a href="#">SPONSORS</a>
+                                <ul class="sub-menu clearfix">
+                                    <li><a href="@Url.Action("SponsorRegistration", "Sponsor")">Sponsor Registration</a></li>
+                                    <li><a href="#">Payments</a></li>
+                                    <li><a href="@Url.Action("UploadArtWork", "Sponsor")">Upload Art Work</a></li>
+                                    <li><a href="#">Sponsors Survey</a></li>
+                                    <li><a href="#">Client Verification Form</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="faq.html">F.A.Q.</a></li>
+                            <li><a href="contact-us.html">CONTACT US</a></li>*@
+                        </ul>
+                    </div>
+                    <!--/ main menu -->
+                </div>
+                <!--/ siteheader-container -->
+            </div>
+            <!--/ kl-main-header -->
+        </header>
+        <!-- / Header-->
+        <!-- Page sub-header + Bottom mask -->
+        <div id="page_header" class="page-subheader site-subheader-cst maskcontainer--mask3">
+            <div class="bgback">
+            </div>
+
+            <!-- Animated Sparkles -->
+            <div class="th-sparkles"></div>
+            <!--/ Animated Sparkles -->
+
+            <!-- Background source -->
+            <div class="kl-bg-source">
+                <!-- Background image -->
+                <div class="kl-bg-source__bgimage" style="background-image: url(/images/ap-slide1.jpg); background-repeat: no-repeat; background-attachment: scroll; background-position-x: center; background-position-y: center; background-size: cover">
+                </div>
+                <!--/ Background image -->
+
+                <!-- Gradient overlay -->
+                <div class="kl-bg-source__overlay" style="background: rgba(53,53,53,0.6); background: -moz-linear-gradient(left, rgba(53,53,53,0.6) 0%, rgba(57,28,188,0.35) 100%); background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(53,53,53,0.6)), color-stop(100%,rgba(57,28,188,0.35))); background: -webkit-linear-gradient(left, rgba(53,53,53,0.6) 0%,rgba(57,28,188,0.35) 100%); background: -o-linear-gradient(left, rgba(53,53,53,0.6) 0%,rgba(57,28,188,0.35) 100%); background: -ms-linear-gradient(left, rgba(53,53,53,0.6) 0%,rgba(57,28,188,0.35) 100%); background: linear-gradient(to right, rgba(53,53,53,0.6) 0%,rgba(57,28,188,0.35) 100%);">
+                </div>
+                <!--/ Gradient overlay -->
+            </div>
+            <!--/ Background source -->
+
+            <!-- Sub-Header content wrapper -->
+            <div class="ph-content-wrap">
+                <div class="ph-content-v-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- Breadcrumbs -->
+                                @*<ul class="breadcrumbs fixclear">
+									<li><a href="index.html">Home</a></li>
+									<li>Form-one</li>
+								</ul>*@
+                                <!--/ Breadcrumbs -->
+                                <div class="clearfix"></div>
+                            </div>
+                            <!--/ col-sm-6 -->
+
+                            <div class="col-sm-6">
+                                <!-- Sub-header titles -->
+                                @*<div class="subheader-titles">
+									<h2 class="subheader-maintitle">Main-Title</h2>
+									<h4 class="subheader-subtitle">Sub-Title</h4>
+								</div>*@
+                                <!--/ Sub-header titles -->
+                            </div>
+                            <!--/ col-sm-6 -->
+                        </div>
+                        <!--/ row -->
+                    </div>
+                    <!--/ container -->
+                </div>
+                <!--/ .ph-content-v-center -->
+            </div>
+            <!--/ Sub-Header content wrapper -->
+
+            <!-- Bottom mask -->
+            <div class="kl-bottommask kl-bottommask--mask3">
+                <svg width="5000px" height="57px" class="svgmask " viewBox="0 0 5000 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-mask3">
+                            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                            <feGaussianBlur stdDeviation="2" in="shadowOffsetInner1" result="shadowBlurInner1"></feGaussianBlur>
+                            <feComposite in="shadowBlurInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.4 0" in="shadowInnerInner1" type="matrix" result="shadowMatrixInner1"></feColorMatrix>
+                            <feMerge>
+                                <feMergeNode in="SourceGraphic"></feMergeNode>
+                                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <path d="M9.09383679e-13,57.0005249 L9.09383679e-13,34.0075249 L2418,34.0075249 L2434,34.0075249 C2434,34.0075249 2441.89,33.2585249 2448,31.0245249 C2454.11,28.7905249 2479,11.0005249 2479,11.0005249 L2492,2.00052487 C2492,2.00052487 2495.121,-0.0374751261 2500,0.000524873861 C2505.267,-0.0294751261 2508,2.00052487 2508,2.00052487 L2521,11.0005249 C2521,11.0005249 2545.89,28.7905249 2552,31.0245249 C2558.11,33.2585249 2566,34.0075249 2566,34.0075249 L2582,34.0075249 L5000,34.0075249 L5000,57.0005249 L2500,57.0005249 L1148,57.0005249 L9.09383679e-13,57.0005249 Z" class="bmask-bgfill" filter="url(#filter-mask3)" fill="#f5f5f5"></path>
+                </svg>
+                <i class="glyphicon glyphicon-chevron-down"></i>
+            </div>
+            <!--/ Bottom mask -->
+        </div>
+        <!--/ Page sub-header + Bottom mask -->
+       @* @if (Session["RoleId"] != null)
+        {
+            if (Session["RoleId"].ToString() == "1")
+            {
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="@Url.Action("GetRegisteredSchoolInfo", "Admin")">Registered Schools</a></li>
+                        <li><a href="@Url.Action("GetRegisteredSponsorInfo", "Admin")">Registered Sponcers</a></li>
+                        <li><a href="#">Approve Schools</a></li>
+                    </ul>
+                </div>
+            </nav>
+            }
+        }
+<div>
+        <span>
+            @Html.ActionLink("Schools SignUp Form", "SignUpForm", "Schools")
+        </span>
+    </div>*@
+        <div>
+            @RenderBody()
+        </div>
+        <!-- Footer -->
+        @*<footer id="new-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-5">
+					<div>
+						<h3 class="title m_title">FOOTER MENU</h3>
+						<div class="sbs">
+							<ul class="menu">
+								<li class="menu-item-has-children menu-item-mega-parent"><a href="/Home/Index">Home</a></li>
+								<li class="menu-item-has-children"><a href="about-us.html">About Us</a>
+								</li>
+								<li class="menu-item-has-children"><a href="product.html">Products</a></li>
+								<li class="menu-item-has-children"><a href="school.html">Schools</a></li>
+								<li class="menu-item-has-children"><a href="sponsors.html">Sponsors</a></li>
+								<li><a href="faq.html">FAQ</a></li>
+								<li><a href="contact-us.html">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!--/ col-sm-5 -->
+
+				<div class="col-sm-4">
+					<div class="newsletter-signup">
+						<h3 class="title m_title">NEWSLETTER SIGNUP</h3>
+						<p>By subscribing to our mailing list you will always be update with the latest news from us.</p>
+						<form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<input type="email" value="" name="EMAIL" class="nl-email form-control" id="mce-EMAIL" placeholder="info@academicpromotions.net" required>
+							<input type="submit" name="subscribe" class="nl-submit" id="mc-embedded-subscribe" value="JOIN US">
+							<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+							<div style="position: absolute; left: -5000px;">
+								<input type="text" name="b_xxxxxxxxxxxxxxxxxxxCUSTOMxxxxxxxxx" value="">
+							</div>
+						</form>	
+						<div id="notification_container"></div>
+						<p>We never spam!</p>
+					</div><!-- end newsletter-signup -->
+				</div>
+				<!-- col-sm-4 -->
+
+				<div class="col-sm-3">
+					<div>
+						<h3 class="title m_title">GET IN TOUCH</h3>
+						<div class="contact-details"><p><strong>866-417-4274</strong><br>
+							Email: <a href="#">  info@academicpromotions.net</a></p>
+							<p>P.O. Box 543212, Grand Prairie, TX 75054</p>
+						</div>
+					</div>
+				</div>
+				<!--/ col-sm-3 -->
+			</div>
+			<!--/ row -->
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="bottom clearfix">
+						<!-- social-icons -->
+						<ul class="social-icons sc--clean clearfix">
+							<li class="title">GET SOCIAL</li>
+							<li><a href="http://www.facebook.com/" target="_self" class="icon-facebook" title="Facebook"></a></li>
+							<li><a href="http://www/twitter.com/" target="_self" class="icon-twitter" title="Twitter"></a></li>	
+							<li><a href="https://www.linkedin.com/uas/login" target="_self" class="icon-linkedin" title="Linkedin"></a></li>
+							<li><a href="https://plus.google.com/" target="_blank" class="icon-gplus" title="Google Plus"></a></li>
+						</ul>
+						<!--/ social-icons -->
+
+						<!-- copyright -->
+						<div class="copyright">
+							<a href="/Home/Index">
+								<img src="images/ap-logo.png" alt="Academic Promotions">
+							</a>
+							<p>© 2017 All rights reserved. Built by <a href="http://leratechit.com/" target="_self" title="Lera Technology">Lera Technology</a>.</p>
+						</div>
+						<!--/ copyright -->
+					</div>
+					<!--/ bottom -->
+				</div>
+				<!--/ col-sm-12 -->
+			</div>
+			<!--/ row -->
+		</div>
+		<!--/ container -->
+	</footer>*@
+        <!--/ Footer -->
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

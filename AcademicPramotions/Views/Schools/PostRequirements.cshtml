@@ -1,0 +1,230 @@
+﻿@{
+    ViewBag.Title = "PostRequirements";
+    Layout = "~/Views/Shared/login_Layout.cshtml";
+}
+<!-- Contact form element -->
+<head>
+    <title>Upload Art work</title>
+</head>
+<body ng-controller="PostRequirementsCtrl">
+    <form name="PostRequirementsform" autocomplete="off">
+        <div class="contactForm">
+            <div class="row ap-signmain">
+                <div class="col-md-1 col-sm-1"></div>
+                <div class="col-md-10 col-sm-10">
+                    <div class="kl-title-block clearfix text-center tbk-symbol-- tbk-icon-pos--after-title">
+                        <h3 class="tbk__title montserrat fs-44 lh-44 fw-bold light-gray3">SIGN UP NOW & SCORE</h3>
+                        <h4 class="tbk__subtitle fs-18 fw-vthin"><strong>Academic Promotions is No.1 Fundraising Company in the USA 
+										 Well, lots of proven reasons...one being multiple productlines.
+                        </strong></h4>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 ap-signup">
+                        <form action="#" method="post" class="contact_form row">
+                            <div class="col-md-1 col-sm-1 col-xs-12"></div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>Rally Towels</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Rally Towels Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.RallyTowels" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/rally_towel.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>Megaphones</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Megaphones Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.Megaphones" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/megaphone.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>Banners</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Banners Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.Banners" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/banner.png" class="img-responsive" alt="cont" width="" height="" />
+
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>Seat Cushions</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Seat Cushions Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.SeatCushions" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/Seatcushions.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>Tote Bags</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Tote Bags Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.ToteBags" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/Totebags.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>Pom Poms</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Pom Poms Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.PomPoms" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/pompoms.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>Thundersticks</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Thundersticks Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.ThunderSticks" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/ThunderStick.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>Sports Bottles</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Sports Bottles Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.SportsBottles" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/bottle.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>Cups</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Cups Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.Cups" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/cup.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>Spirit Beads</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Spirit Beads Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.SpiritBeads" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/spiritbeads.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>T-Shirts</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-5 col-xs-8">
+                                                <label>T-Shirts Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.TShirts" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/tshirt.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-4 ap-formtable">
+                                        <h4>Mini-Balls</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Mini-Balls Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.Miniballs" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/rugbyball.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+
+                                    <div class="col-md-3 col-sm-3 col-xs-3 ap-formtable ap-last">
+                                        <h4>Car Flags</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>Car Flags Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.CarFlags" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/carflag.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3 ap-formtable ap-last">
+                                        <h4>Collapsable Megaphones</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ap-table">
+                                            <div class="col-md-7 col-sm-7 col-xs-8">
+                                                <label>C megaphones Qty:</label>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-4">
+                                                <input type="text" ng-model="Requirements.CollapsableMegaphones" class="ap-table-text"></input>
+                                            </div>
+                                        </div>
+                                        <img src="/images/collapsiblemegaphones.png" class="img-responsive" alt="cont" width="" height="" />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 ap-formtable check-web">
+                                        <h4>Check out all our products online!</h4>
+                                        <div class="col-md-6 col-sm-6 col-xs-12 ap-table">
+                                            <img src="/images/ap-logo.png" alt="cont" class="img-responsive" width="" height="" />
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12 ap-table ap-qrc">
+                                            <img src="/images/QR1.png" alt="cont" class="img-responsive" width="" height="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-1 col-xs-12"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-1 col-sm-1"></div>
+            </div>
+        </div>
+        <input type="button" ng-click="saveRequirementData(Requirements)" value="Save" />
+        <input type="button" value="Cancel" />
+        <div class="col-lg-12">
+            <div class="alert alert-danger fade in" ng-show="showError">
+                <a href="javascript:;" class="close closeError" data-dismiss="alert">&times;</a>
+                <strong>Error!</strong> <span data-ng-bind="errorMsg"></span>
+            </div>
+            <div class="alert alert-success fade in" ng-show="showSuccess">
+                <a href="javascript:;" class="close closeError" data-dismiss="alert">&times;</a>
+                <strong>Success !</strong> <span data-ng-bind="successMsg"></span>
+            </div>
+        </div>
+    </form>
+</body>
+<!--/ Contact form element -->

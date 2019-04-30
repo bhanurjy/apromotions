@@ -1,0 +1,9 @@
+D:\AP\AcademicPramotions.ViewModels\bin\Release\AcademicPramotions.ViewModels.dll.config
+D:\AP\AcademicPramotions.ViewModels\bin\Release\AcademicPramotions.ViewModels.dll
+D:\AP\AcademicPramotions.ViewModels\bin\Release\AcademicPramotions.ViewModels.pdb
+D:\AP\AcademicPramotions.ViewModels\bin\Release\EntityFramework.dll
+D:\AP\AcademicPramotions.ViewModels\bin\Release\EntityFramework.SqlServer.dll
+D:\AP\AcademicPramotions.ViewModels\bin\Release\EntityFramework.xml
+D:\AP\AcademicPramotions.ViewModels\bin\Release\EntityFramework.SqlServer.xml
+D:\AP\AcademicPramotions.ViewModels\obj\Release\AcademicPramotions.ViewModels.dll
+D:\AP\AcademicPramotions.ViewModels\obj\Release\AcademicPramotions.ViewModels.pdb

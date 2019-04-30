@@ -1,0 +1,12 @@
+D:\AP\AcademicPramotions.DataLayer\bin\Release\AcademicPramotions.DataLayer.dll.config
+D:\AP\AcademicPramotions.DataLayer\bin\Release\AcademicPramotions.DataLayer.dll
+D:\AP\AcademicPramotions.DataLayer\bin\Release\AcademicPramotions.DataLayer.pdb
+D:\AP\AcademicPramotions.DataLayer\bin\Release\AcademicPramotions.DataModels.dll
+D:\AP\AcademicPramotions.DataLayer\bin\Release\EntityFramework.dll
+D:\AP\AcademicPramotions.DataLayer\bin\Release\EntityFramework.SqlServer.dll
+D:\AP\AcademicPramotions.DataLayer\bin\Release\AcademicPramotions.DataModels.pdb
+D:\AP\AcademicPramotions.DataLayer\bin\Release\EntityFramework.xml
+D:\AP\AcademicPramotions.DataLayer\bin\Release\EntityFramework.SqlServer.xml
+D:\AP\AcademicPramotions.DataLayer\obj\Release\AcademicPramotions.DataLayer.csprojResolveAssemblyReference.cache
+D:\AP\AcademicPramotions.DataLayer\obj\Release\AcademicPramotions.DataLayer.dll
+D:\AP\AcademicPramotions.DataLayer\obj\Release\AcademicPramotions.DataLayer.pdb

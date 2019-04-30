@@ -1,0 +1,69 @@
+﻿@using AcademicPramotions.ViewModels
+@model List<AcademicPramotions.ViewModels.SchoolInfoVM>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "RegisteredSchoolInfo";
+    Layout = "~/Views/Shared/login_Layout.cshtml";
+}
+
+<div class="clear-both" style="" ng-controller="AdminCtrl">
+    <div class="hpanel">
+        <div class="panel-heading">
+            <div class="panel-tools">
+            </div>
+            Registered Schools Information
+        </div>
+        <div class="grid-wrap clearfix ng-scope">
+            @Html.Grid(Model).Columns(columns =>
+{
+
+    columns.Add(o => o.SchoolName).Titled("School Name");
+
+    columns.Add(o => o.City).Titled("City");
+
+    columns.Add(o => o.StateName).Titled("State Name");
+
+    columns.Add(o => o.Telephone).Titled("Telephone");
+
+    columns.Add(o => o.Email).Titled("Email");
+
+    columns.Add(o => o.Website).Titled("Website");
+
+    columns.Add(o => o.ContactTitle).Titled("Contact Title");
+
+}).WithPaging(10).Sortable().Filterable().WithMultipleFilters()
+        </div>
+        @*<table border="0" align="center" class="table  table-condensed table-bordered">
+                    <tbody>
+
+                        <tr align="center">
+                            <th class="TableHeaderText"><b>SNo</b></th>
+                            <th class="TableHeaderText">School Name</th>
+                            <th class="TableHeaderText">School City</th>
+                            <th class="TableHeaderText">State</th>
+                            <th class="TableHeaderText">Phone Number</th>
+                            <th class="TableHeaderText">Email</th>
+                            <th class="TableHeaderText">Website</th>
+                            <th class="TableHeaderText">Contact Name</th>
+                        </tr>
+                        @{int rowNo=0;}
+                        @foreach(var item in Model){
+                        <tr>
+                            <td>@(rowNo+=1)</td>
+                            <td>@item.SchoolName</td>
+                            <td>@item.City</td>
+                            <td>@item.StateName</td>
+                            <td>@item.Telephone</td>
+                            <td>@item.Email</td>
+                            <td>@item.Website</td>
+                            <td>@item.ContactTitle</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>*@
+        @*<pagination total-items="FEPProgram.length" ng-click="programlistPageChange(programListCurrentPage);" items-per-page="rowsPerPage" ng-model="programListCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true"></pagination>*@
+    </div>
+</div>
+
+
+

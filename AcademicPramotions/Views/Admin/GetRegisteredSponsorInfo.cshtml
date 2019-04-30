@@ -1,0 +1,37 @@
+﻿@using AcademicPramotions.ViewModels
+@model List<AcademicPramotions.ViewModels.SponsorInfoVM>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "GetRegisteredSponsorInfo";
+    Layout = "~/Views/Shared/login_Layout.cshtml";
+}
+<div class="clear-both" style="" ng-controller="AdminCtrl">
+    <div class="hpanel">
+        <div class="panel-heading">
+            <div class="panel-tools">
+            </div>
+            Registered Sponsors Information
+        </div>
+        <div class="grid-wrap clearfix ng-scope">
+            @Html.Grid(Model).Columns(columns =>
+{
+
+    columns.Add(o => o.SponsorName).Titled("Sponsor Name");
+
+    columns.Add(o => o.BusinessName).Titled("Business Name");
+
+    columns.Add(o => o.SponsorEmail).Titled("Sponsor Email");
+
+    columns.Add(o => o.City).Titled("City");
+
+    columns.Add(o => o.StateName).Titled("State Name");
+
+    columns.Add(o => o.Phone).Titled("Telephone");
+
+    columns.Add(o => o.BusinessWebsite).Titled("Website");  
+
+}).WithPaging(10).Sortable().Filterable().WithMultipleFilters()
+        </div>
+    </div>
+</div>
+

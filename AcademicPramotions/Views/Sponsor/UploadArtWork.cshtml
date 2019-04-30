@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "UploadArtWork";
+    Layout = "~/Views/Shared/login_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Art work</title>
+</head>
+<body ng-controller="UploadArtworkCtrl">
+    <div class="col-md-12">
+        <h3>Upload Art work</h3>
+        <span></span>
+        <form name="Uploadartworkform" autocomplete="off">
+
+            <div class="col-md-12" ng-class="{ 'has-error' : Uploadartworkform.SponsoredSchool.$error.required && !Uploadartworkform.SponsoredSchool.$pristine }">
+                <label class="col-lg-2">Sponsored School<span style="color: red;">*</span></label>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        @*<input class="form-control" type="text" name="SponsoredSchool" ng-model="ArtWork.SponsoredSchool" placeholder="School Name" ng-keyup="SchoolNameAutoComplete()" characters-only required />*@
+                        <input type="text" ng-model="ArtWork.SponsoredSchool.SchoolInfoId" ng-model-options="sponsoredSchoolOptions" uib-typeahead="school as school.SchoolName for school in allschools | filter:$viewValue | limitTo:8" class="form-control"  characters-only required>
+                        {{ArtWork.SponsoredSchool.SchoolInfoId.SchoolInfoId}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" ng-class="{ 'has-error' : Uploadartworkform.Invoice.$error.required && !Uploadartworkform.Invoice.$pristine }">
+                <label class="col-lg-2">Invoice<span style="color: red;">*</span></label>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="Invoice" ng-model="ArtWork.Invoice" placeholder="Invoice" numbers-only required />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <label class="col-lg-2">
+                    Sport<span style="color: red;">*</span>
+                </label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Uploadartworkform.Sport.$error.required && !Uploadartworkform.Sport.$pristine }">
+                    <div class="form-group">
+                        <select class="form-control" name="Sport" data-ng-model="ArtWork.Sport" ng-options="S.SportId as S.SportName for S in SportsInfoList | orderBy:'SportName'" required>
+                            <option value="">Select a sport</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <label class="col-lg-2">
+                    Season<span style="color: red;">*</span>
+                </label>
+                <div class="col-lg-3" ng-class="{ 'has-error' : Uploadartworkform.Season.$error.required && !Uploadartworkform.Season.$pristine }">
+                    <div class="form-group">
+                        <select class="form-control" name="Season" data-ng-model="ArtWork.Season" ng-options="S.YearId as S.Year for S in SeasonInfoList | orderBy:'Year'" required>
+                            <option value="">Select Season</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <label class="col-lg-2">Items Sponsoring<span style="color: red;">*</span></label>
+                <div class="col-lg-5" ng-class="{ 'has-error' : Uploadartworkform.ItemsSponsoring.$error.required && !Schoolsignupform.ItemsSponsoring.$pristine }">
+                    <div class="form-group">
+                        <label data-ng-repeat="item in ItemsList" class="checkbox-inline">
+                            <input type="checkbox" name="ItemsList[]" value="{{item.ItemName}}" data-ng-checked="selection.indexOf(item) > -1" data-ng-click="toggleItemSelection(item.ItemName)">
+                            {{item.ItemName}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" ng-class="{ 'has-error' : Uploadartworkform.UploadArt.$error.required && !Uploadartworkform.UploadArt.$pristine }">
+                <label class="col-lg-2">Upload Art<span style="color: red;">*</span></label>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        @* <input class="form-control" type="file" name="UploadArt" ng-model="ArtWork.UploadArt"/>*@
+                        <input type="file" class="form-control" name="UploadArt" fileread="ArtWork.UploadArt" required />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" ng-class="{ 'has-error' : Uploadartworkform.instructions.$error.required && !Uploadartworkform.instructions.$pristine }">
+                <label class="col-lg-2">Instructions<span style="color: red;">*</span></label>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <textarea rows="4" cols="50" name="instructions" class="form-control" ng-model="ArtWork.Instructions" placeholder="Instructions" required>Instructions...</textarea>
+                        @*<input class="form-control" type="textarea" name="instructions" ng-model="ArtWork.Instructions" placeholder="Instructions" characters-only required />*@
+                    </div>
+                </div>
+            </div>
+            <input type="button" ng-click="saveUploadedArtwork()" ng-disabled="Uploadartworkform.$invalid" value="Save" />
+            <input type="button" value="Cancel" />
+            <div class="col-lg-12">
+                <div class="alert alert-danger fade in" ng-show="showError">
+                    <a href="javascript:;" class="close closeError" data-dismiss="alert">&times;</a>
+                    <strong>Error!</strong> <span data-ng-bind="errorMsg"></span>
+                </div>
+                <div class="alert alert-success fade in" ng-show="showSuccess">
+                    <a href="javascript:;" class="close closeError" data-dismiss="alert">&times;</a>
+                    <strong>Success !</strong> <span data-ng-bind="successMsg"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
